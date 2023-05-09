@@ -71,26 +71,17 @@ public class Delivery {
     }
 
     public static void deliveryCancel(OrderCanceled orderCanceled) {
-        /** Example 1:  new item 
-        Delivery delivery = new Delivery();
-        repository().save(delivery);
 
-        DeliveryCanceled deliveryCanceled = new DeliveryCanceled(delivery);
-        deliveryCanceled.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderCanceled.get???()).ifPresent(delivery->{
+        repository().findByOrderId(orderCanceled.getOrderId()).ifPresent(delivery->{
             
-            delivery // do something
+
+            delivery.setStatus(status:"DeliveryCancelled");
             repository().save(delivery);
 
             DeliveryCanceled deliveryCanceled = new DeliveryCanceled(delivery);
             deliveryCanceled.publishAfterCommit();
 
          });
-        */
 
     }
 }

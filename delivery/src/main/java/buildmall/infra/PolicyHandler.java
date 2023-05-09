@@ -26,9 +26,8 @@ public class PolicyHandler {
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='OrderPlaced'"
     )
-    public void wheneverOrderPlaced_DeliveryStart(
-        @Payload OrderPlaced orderPlaced
-    ) {
+
+    public void wheneverOrderPlaced_DeliveryStart(@Payload OrderPlaced orderPlaced) {
         OrderPlaced event = orderPlaced;
         System.out.println(
             "\n\n##### listener DeliveryStart : " + orderPlaced + "\n\n"
@@ -46,9 +45,7 @@ public class PolicyHandler {
         value = KafkaProcessor.INPUT,
         condition = "headers['type']=='OrderCanceled'"
     )
-    public void wheneverOrderCanceled_DeliveryCancel(
-        @Payload OrderCanceled orderCanceled
-    ) {
+    public void wheneverOrderCanceled_DeliveryCancel(@Payload OrderCanceled orderCanceled) {
         OrderCanceled event = orderCanceled;
         System.out.println(
             "\n\n##### listener DeliveryCancel : " + orderCanceled + "\n\n"
